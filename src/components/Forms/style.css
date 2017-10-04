@@ -1,0 +1,7 @@
+.js-error-field{
+  border: 1px solid #FF0000;
+}
+.js-error-text{
+  margin-top: 10px;
+  color: #FF0000;
+}

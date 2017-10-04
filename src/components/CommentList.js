@@ -2,18 +2,19 @@ import React, {Component} from 'react'
 import Comment from './Comment'
 import PropTypes from 'prop-types'
 import toggleOpen from '../decorators/toggleOpen'
+import FormForComment from './Forms/FormForComment';
 
 class CommentList extends Component {
     componentDidMount() {
-        console.log('---', 'mounted')
+        // console.log('---', 'mounted')
     }
 
     componentWillUnmount() {
-        console.log('---', 'unmounting')
+        // console.log('---', 'unmounting')
     }
 
     componentWillReceiveProps() {
-        console.log('---', 'updating')
+        // console.log('---', 'updating')
     }
 
     render() {
@@ -41,6 +42,7 @@ function getBody(props) {
     return (
         <div>
             {body}
+            <FormForComment />
         </div>
     )
 }
