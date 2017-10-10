@@ -42,6 +42,16 @@ ArticleList.propTypes = {
     articles: PropTypes.array.isRequired
 }
 
-export default connect((state) => ({
-    articles: state.articles
-}))(ArticleList)
+export default connect(({filters, articles}) => {
+  const {select, rangeDate: {from, to}} = filters
+
+  const filteredArticles =  articles.filter(article => {
+    const published = Date.parse(article.date)
+    return (!select.length || select.includes(article.id)) &&
+      (!from || !to || (published > from && published < to))
+  })
+
+  return {
+    articles: filteredArticles
+  }
+})(ArticleList)
